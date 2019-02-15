@@ -9,15 +9,15 @@ import { ProfileComponent } from './profile/profile.component';
 import { CategoryComponent } from './category/category.component';
 
 const routes: Routes = [
-  { path:'products', component:ProductComponent},
-  { path:'productList', component:ProductListComponent},
-  { path:'productList/:pk', component:ProductDetailComponent},
-  { path:'productDetails', component:ProductDetailComponent},
   {path: '', component: CategoryComponent, pathMatch: 'full'},
-  {path: 'profile', component: ProfileComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegisterComponent},
-  { path: 'category', component: CategoryComponent}
+  { path: 'products', component: ProductComponent},
+  { path: 'products/:pk', component: ProductListComponent},
+  { path: 'productDetail/:pk', component: ProductDetailComponent},
+  { path: 'productDetails', component: ProductDetailComponent},
+  {path: 'profile', component:  ProfileComponent},
+  {path: 'login', component:  LoginComponent},
+  {path: 'register', component:  RegisterComponent},
+  { path: 'category', component:  CategoryComponent}
 ];
 
 @NgModule({

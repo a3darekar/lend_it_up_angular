@@ -12,7 +12,7 @@
   </ul>
 </nav>
 <ul id="menu" class='categoryul' *ngFor='let category of categories'>
-  <li class='categoryli'>
+  <li class='categoryli' (click)='onCategorySelect(category)'>
       <div class="card" style="width: 18rem">
           <img class="card-img-top" height='200px;' [src]="category.image" alt="Card image cap">
           <div class="card-body" style='height: 150px;'>

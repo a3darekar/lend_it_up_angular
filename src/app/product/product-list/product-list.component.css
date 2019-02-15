@@ -1,0 +1,17 @@
+.categoryul{
+  display:inline-block;
+  margin: 40px 20px;
+}
+
+.categoryli{
+  display: inline-block;
+}
+#fluidRow{
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.text-white{
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+}
