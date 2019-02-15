@@ -1,3 +1,79 @@
-<p>
-  product works!
-</p>
+<hr>
+<form>
+  <div class="form-check">
+    <label class="form-check-label">
+      <input type="radio" class="form-check-input" name="option"> Sell
+    </label>
+  </div>
+  
+  <div class="form-check">
+    <label class="form-check-label">
+      <input type="radio" class="form-check-input" name="option"> Lend
+    </label>
+  </div>
+  
+  <div class="form-check">
+    <label class="form-check-label">
+      <input type="radio" class="form-check-input" name="option"> Both
+    </label>
+  </div>
+  <br>
+
+  <b>Choose a category:</b>
+  <div class="form-group">
+    <select required #productCategory1="ngModel"
+            [(ngModel)] = 'productCategory'
+            [class.is-invalid]="productCategory1.is-invalid && productCategory1.touched"
+            class="custom-select" name="productCategory">
+      <option *ngFor="let p of productCategory">{{ p }} </option>
+    </select>
+  </div>
+
+  <div>
+      
+    <input type="text" name="productName" size="50" placeholder="Enter Product Name">
+    <br><br>
+    <input type="text" name="productDesciption" size="50" placeholder="Enter Product Description(optional)"><br><br>
+    <input type="text" name="productQuantity" size="50" placeholder="Enter quantity"><br>
+    <p>
+      image upload code...
+    </p>
+  </div>
+
+  <hr>
+  <h2 style="text-align:center">LEND</h2>
+  <div>
+    <input type="tel" name="productLendingPrice" placeholder="Set Price">
+    per 
+  </div>
+  <div class="form-check">
+    <label class="form-check-label">
+      <input type="radio" class="form-check-input" name="option"> Day
+    </label>
+  </div>
+    
+  <div class="form-check">
+    <label class="form-check-label">
+      <input type="radio" class="form-check-input" name="option"> Month
+    </label>
+  </div>
+    
+  <div class="form-check">
+    <label class="form-check-label">
+      <input type="radio" class="form-check-input" name="option"> Year
+    </label>
+  </div>
+  <br>
+  
+  <hr>
+  <h2 style="text-align:center">SELL</h2>
+  <div>
+      <input type="text" name="productSellingPrice" size="50" placeholder="Enter Price Per Unit"><br><br>
+  </div>
+  <br><br>
+  <hr>
+  <input type="submit" class="btn btn-primary" value="Upload" style="float:right">
+  <br>
+  <br>
+</form>
+

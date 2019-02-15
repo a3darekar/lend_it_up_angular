@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductComponent implements OnInit {
 
+  public productCategory=["Stationary","Question Papers","Books"]
   constructor() { }
 
   ngOnInit() {
