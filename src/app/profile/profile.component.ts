@@ -96,5 +96,4 @@ export class ProfileComponent implements OnInit {
       error => console.log('profile update', error)
     );
   }
-
 }
