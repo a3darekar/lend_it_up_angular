@@ -6,11 +6,11 @@ import { ProfileComponent } from './profile/profile.component';
 import { CategoryComponent } from './category/category.component';
 
 const routes: Routes = [
-  {path: '', component: LoginComponent, pathMatch: 'full'},
+  {path: '', component: CategoryComponent, pathMatch: 'full'},
   {path: 'profile', component: ProfileComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  { path: 'category',component:CategoryComponent}
+  { path: 'category', component: CategoryComponent}
 ];
 
 @NgModule({

@@ -1,149 +1,27 @@
-<!-- <div class="row">
-
-  <div class="col-sm-6">
-    <div class="card" style="width:18rem;">
-      <img class="card-img-top" src="https://image.freepik.com/free-vector/books-stack-realistic_1284-4735.jpg"
-          alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card Title</h5>
-            <p class="card-text">card One</p>
-            <a href="#" class="btn btn-primary">Go Somewhere</a>
-          </div>
-    </div>
-  </div>
-
-  
-      <div class="col-sm-6">
-        <div class="card" style="width:18rem;">
-          <img class="card-img-top" src="https://image.freepik.com/free-vector/books-stack-realistic_1284-4735.jpg"
-              alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Card Title</h5>
-                <p class="card-text">card One</p>
-                <a href="#" class="btn btn-primary">Go Somewhere</a>
-              </div>
-        </div>
-      </div>
-
-   </div>    row -->
-<!-- <div class="row">
-  <div class="w-25 p-3">
-    <div class="card-deck">
-        <div class="card" style="width:18rem">
-          <img class="card-img-top" src="https://image.freepik.com/free-vector/books-stack-realistic_1284-4735.jpg"
-              alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Card Title</h5>
-                <p class="card-text">card One</p>
-                <a href="#" class="btn btn-primary">Go Somewhere</a>
-              </div>
-              
-              <div class="footer">
-                <small class="text-muted">last Updated 3 minutes ago</small>
-              </div>  
-        </div>
-      </div>
-
-      <div class="card">
-          <img class="card-img-top" src="https://image.freepik.com/free-vector/books-stack-realistic_1284-4735.jpg"
-          alt="Card image cap">
-          <div class="card-body">
-              <h5 class="card-title">Card Title</h5>
-              <p class="card-text">card One</p>
-              <a href="#" class="btn btn-primary">Go Somewhere</a>
-          </div>
-          
-          <div class="footer">
-              <small class="text-muted">last Updated 3 minutes ago</small>
-          </div>  
-      </div>
-
-      </div>
-  </div> -->
-
-  <!-- demo -->
-
-  <!--<div class="card-deck" style="width: 68rem">
-      <div class="card">
-        <img class="card-img-top" src="https://image.freepik.com/free-vector/books-stack-realistic_1284-4735.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted">Last updated 3 mins ago</small>
-        </div>
-      </div>
-
-      <div class="card">
-        <img class="card-img-top" src="https://image.freepik.com/free-vector/books-stack-realistic_1284-4735.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted">Last updated 3 mins ago</small>
-        </div>
-      </div>
-
-      <div class="card">
-        <img class="card-img-top" src="https://image.freepik.com/free-vector/books-stack-realistic_1284-4735.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted">Last updated 3 mins ago</small>
-        </div>
-      </div>
-  </div>
-<br> <br>
-  <div class="card-deck" style="width: 68rem">
-      <div class="card">
-        <img class="card-img-top" src="https://image.freepik.com/free-vector/books-stack-realistic_1284-4735.jpg" w-25 p-3 alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted">Last updated 3 mins ago</small>
-        </div>
-      </div>
-
-      <div class="card">
-        <img class="card-img-top" src="https://image.freepik.com/free-vector/books-stack-realistic_1284-4735.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted">Last updated 3 mins ago</small>
-        </div>
-      </div>
-      
-      <div class="card">
-        <img class="card-img-top" src="https://image.freepik.com/free-vector/books-stack-realistic_1284-4735.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted">Last updated 3 mins ago</small>
-        </div>
-      </div>
-  </div>-->
-  <ul *ngFor='let item of items'>
-    <li>
-        <div class="card" style="width: 68rem">
-            <img class="card-img-top" [src]="item.img" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">{{item.title}}</h5>
-              <p class="card-text"> {{ item.description }}</p>
-            </div>
-            <div class="card-footer">
-              <small class="text-muted">Last updated 3 mins ago</small>
-            </div>
-          </div>
+<nav class='navbar fixed-top navbar-expand-sm navbar-light blue sticky-top'>
+  <ul class='navbar-nav mr-auto'>
+    <li class='nav-item'>
+      <a href='' style="font-weight: bold;" class='text-white navbar-brand waves-effect'>Lend it up!</a>
     </li>
+    <li [hidden]='!key' class="nav-item mr-auto text-white nav-link waves-effect">
+        {{ username ? username : "" }}
+    </li>
+    <li (click)='onLogout()' class='nav-item mr-auto text-white nav-link waves-effect'>
+        {{ key ? "Logout" : "" }}
+      </li>
   </ul>
-
+</nav>
+<ul id="menu" class='categoryul' *ngFor='let category of categories'>
+  <li class='categoryli'>
+      <div class="card" style="width: 18rem">
+          <img class="card-img-top" height='200px;' [src]="category.image" alt="Card image cap">
+          <div class="card-body" style='height: 150px;'>
+            <h5 class="card-title">{{category.name}}</h5><hr>
+            <p class="card-text"> {{ category.description }}</p>
+          </div>
+          <!--<div class="card-footer">
+            <small class="text-muted">Last updated 3 mins ago</small>
+          </div>-->
+        </div>
+  </li>
+</ul>

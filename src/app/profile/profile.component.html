@@ -27,45 +27,37 @@
                 class='form-control' [class.is-invalid]='pictureInput.invalid && pictureInput.touched' name='pictureInput'>
           <div class='form-group'>
             <label>First name</label>
-            <input type='text' #firstName='ngModel' required [(ngModel)] = 'profileData.firstName'
+            <input type='text' #firstName='ngModel' required [(ngModel)] = 'user.firstName'
                 class='form-control' [class.is-invalid]='firstName.invalid && firstName.touched' name='firstName'>
             <small class="text-danger" [class.d-none]='firstName.valid || firstName.untouched'>This field is required!</small>
           </div>
           <div class='form-group'>
             <label>Last name</label>
-            <input type='text' #lastName='ngModel' required [(ngModel)] = 'profileData.lastName'
+            <input type='text' #lastName='ngModel' required [(ngModel)] = 'user.lastName'
                 class='form-control' [class.is-invalid]='lastName.invalid && lastName.touched' name='lastName'>
             <small class="text-danger" [class.d-none]='lastName.valid || lastName.untouched'>This field is required!</small>
           </div>
-          <div class="form-group">
-            <label>Email</label>
-            <input #email='ngModel' [(ngModel)]='profileData.email' name='email' type="email"
-                  required class="form-control" [class.is-invalid]='email.invalid && email.touched'>
-              <small class="text-danger" [class.d-none] = 'email.valid || email.untouched'>
-                This field is required!
-              </small>
-          </div>
           <div class='form-group'>
             <label>Contact number</label>
-            <input type='tel' #contact='ngModel' required [(ngModel)] = 'profileData.contact'
+            <input type='text' #contact='ngModel' required [(ngModel)] = 'user.contactNo'
                 class='form-control' [class.is-invalid]='contact.invalid && contact.touched' name='contact'>
             <small class="text-danger" [class.d-none]='contact.valid || contact.untouched'>This field is required!</small>
           </div>
           <div class='form-group'>
             <label>CPRN</label>
-            <input type='text' #cprn='ngModel' required [(ngModel)] = 'profileData.cprn'
+            <input type='text' #cprn='ngModel' required [(ngModel)] = 'user.cprn'
                 class='form-control' [class.is-invalid]='cprn.invalid && cprn.touched' name='cprn'>
             <small class="text-danger" [class.d-none]='cprn.valid || cprn.untouched'>This field is required!</small>
           </div>
           <div class='form-group'>
             <label>Branch</label>
-            <select #branch='ngModel' [(ngModel)]='profileData.branch' name="branch"class="form-control">
+            <select #branch='ngModel' [(ngModel)]='user.branch' name="branch"class="form-control">
                 <option *ngFor="let branch of branches">{{branch}}</option>
             </select>
           </div>
           <div class='form-group'>
             <label>Academic year</label>
-            <select #year='ngModel' [(ngModel)]='profileData.academicYear' name="year"class="form-control">
+            <select #year='ngModel' [(ngModel)]='user.academicYear' name="year"class="form-control">
                 <option *ngFor="let year of years">{{year}}</option>
             </select>
           </div>

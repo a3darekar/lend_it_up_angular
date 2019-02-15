@@ -7,7 +7,7 @@ export class User {
   public firstName: string;
   public lastName: string;
   public account: number;
-  public contact: string;
+  public contactNo: string;
   public name: string;
   public cprn: string;
   public branch: string;
@@ -67,11 +67,11 @@ export class User {
   }
 
   public setContact(contact: string){
-    this.contact = contact;
+    this.contactNo = contact;
   }
 
   public getContact(){
-    return this.contact;
+    return this.contactNo;
   }
 
   public setAccount(account: number) {

@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { User } from '../observables/user';
 import { LoginService } from '../services/login.service';
 import { Sessionmanager } from '../../utils/sessionmanager';
+import { RegisterService } from '../services/register.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,8 @@ export class LoginComponent implements OnInit {
   user = new User();
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
-              private loginService: LoginService) { }
+              private loginService: LoginService,
+              private registerService: RegisterService) { }
 
   ngOnInit() {
   }
@@ -34,7 +36,18 @@ export class LoginComponent implements OnInit {
 
   createSesstion(key: string){
     var sessionManager = new Sessionmanager();
+    this.registerService.getUser(key).subscribe(
+      data => this.redirectToProfile(data.username, key, data.pk),
+      error => console.log('error', error)
+    );
     sessionManager.createLoginSession(key, this.user.username, this.router, this.activatedRoute);
+  }
+
+  redirectToProfile(username: string, key: string, pk: number){
+    localStorage.setItem('key', key);
+    localStorage.setItem('username', username);
+    localStorage.setItem('userPk', pk.toString());
+    this.router.navigate(['/category'], {relativeTo: this.activatedRoute});
   }
 
 }

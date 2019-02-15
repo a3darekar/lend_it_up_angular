@@ -56,7 +56,6 @@ export class ProfileComponent implements OnInit {
         this.user.setId(this.profileData[this.i].id);
         this.user.setFirstName(this.profileData[this.i].getFirstName());
         this.user.setLastName(this.profileData[this.i].getLastName());
-        this.user.setContact(this.profileData[this.i].getContact());
         this.user.setCPRN(this.profileData[this.i].getCPRN());
         this.user.setEmail(this.profileData[this.i].getEmail());
         this.user.setBranch(this.profileData[this.i].getBranch());
@@ -82,15 +81,15 @@ export class ProfileComponent implements OnInit {
   onUpload() {
     console.log('update profile', this.user);
     const formData = new FormData();
-    formData.append('firstName', this.user.getFirstName());
+    formData.append('firstName', this.user.firstName);
     formData.append('authAccount', localStorage.getItem('userPk'));
-    formData.append('lastName', this.user.getLastName());
+    formData.append('lastName', this.user.lastName);
     formData.append('profilePicture', this.selectedPicture, this.selectedPicture.name);
-    formData.append('contactNo', this.user.getContact());
-    formData.append('cprn', this.user.getCPRN());
-    formData.append('email', this.user.getEmail());
-    formData.append('branch', this.user.getBranch());
-    formData.append('academicYear', this.user.getAcademicYear());
+    formData.append('contactNo', this.user.contactNo);
+    formData.append('cprn', this.user.cprn);
+    formData.append('branch', this.user.branch);
+    formData.append('academicYear', this.user.academicYear);
+    console.log('form', formData.get('contactNo'));
     this.profileService.updateProfile(formData).subscribe(
       data => console.log('profile update', data),
       error => console.log('profile update', error)
