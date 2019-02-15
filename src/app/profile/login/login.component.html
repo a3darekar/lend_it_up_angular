@@ -1,3 +1,35 @@
-<p>
-  login works!
-</p>
+<nav class='navbar fixed-top navbar-expand-sm navbar-light blue sticky-top'>
+  <ul class='navbar-nav mr-auto'>
+    <li class='nav-item'>
+      <a href='' style="font-weight: bold;" class='text-white navbar-brand waves-effect'>Lend  it up!</a>
+    </li>
+    <li [hidden] = 'key'(click)='onRegister()' class='nav-item mr-auto text-white nav-link waves-effect'>
+        {{ key ? "" : "Register" }}
+    </li>
+  </ul>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col col-md-4"></div>
+    <div class="col col-md-4">
+      <h2>Login</h2>
+      <form #loginForm='ngForm' novalidate (ngSubmit)='onLogin()'>
+        <div class="form-group">
+          <label>Username</label>
+          <input #username='ngModel' [(ngModel)]='user.username' type="text" required
+                 class="form-control" [class.is-invalid]='username.invalid && username.touched'
+                 name = 'username'>
+          <small class="text-danger" [class.d-none] = 'username.valid || username.untouched'>Username cannot be empty!</small>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input #password='ngModel' required [(ngModel)] = 'user.password' name='password'
+                 type="password" class="form-control" [class.is-invalid]='password.invalid && password.touched'>
+                 <small class="text-danger" [class.d-none] = 'password.valid || password.untouched'>Password cannot be empty!</small>
+        </div>
+        <button class="btn btn-primary">Login</button>
+      </form>
+    </div>
+    <div class="col col-md-4"></div>
+  </div>
+</div>
