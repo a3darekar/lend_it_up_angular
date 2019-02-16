@@ -14,7 +14,7 @@ export class User {
   public academicYear: string;
   public profilePicture: string;
 
-  public setId(id: number) {
+  public setPk(id: number) {
     this.pk = id;
   }
 
@@ -86,7 +86,7 @@ export class User {
     this.profilePicture = profilePicture;
   }
 
-  public getId() {
+  public getPk() {
     return this.pk;
   }
 

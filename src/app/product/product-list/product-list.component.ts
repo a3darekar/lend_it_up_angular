@@ -3,6 +3,7 @@ import { Product } from '../observables/productList.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ProductDetailComponent } from '../product-detail/product-detail.component';
 import { ProductlistService } from '../services/productlist.service';
+import { RequestService } from '../../product/services/request.service';
 
 
 @Component({
@@ -21,7 +22,8 @@ export class ProductListComponent implements OnInit {
   priceFilter = '500';
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
-              private productService: ProductlistService) { }
+              private productService: ProductlistService,
+              private requestService: RequestService) { }
 
   ngOnInit() {
     let pk = this.activatedRoute.snapshot.paramMap.get('pk');
@@ -31,17 +33,29 @@ export class ProductListComponent implements OnInit {
       data => this.products = data,
       error => console.log('error', error)
     );
+
+    console.log('products', this.products);
   }
 
   ngAfterContentChecked() {
     this.username = localStorage.getItem('username');
   }
 
+  onLogout() {
+    localStorage.clear;
+    this.router.navigate(['/login'], {relativeTo: this.activatedRoute});
+  }
+
   onItemClick(){
     this.router.navigate(['/productDetails'], {relativeTo: this.activatedRoute});
   }
 
-  onProductSelect() {
-    window.prompt("The seller will see your contact details after accepting your request. Please mention location, price you're willing to pay, etc.");
+  onProductSelect(id) {
+    const product = {'product': id};
+    console.log('product', product);
+    this.requestService.createRequest(product).subscribe(
+      data => window.alert("Your request has been submitted."),
+      error => console.log('error', error)
+    );
   }
 }

@@ -47,13 +47,15 @@ export class ProfileComponent implements OnInit {
   setProfile(data: User[]) {
     this.profileData = data;
     console.log('profile length', this.profileData.length);
+    console.log('profile pk', data);
     console.log('account', this.account);
     for ( this.i = 0; this.i < this.profileData.length; this.i++) {
       console.log('current profile', this.profileData[this.i].account);
       // tslint:disable-next-line:triple-equals
       if (this.account == this.profileData[this.i].account) {
         console.log('found', this.profileData[this.i]);
-        this.user.setId(this.profileData[this.i].id);
+        console.log('profile pk', this.profileData[this.i].id);
+        this.user.setPk(this.profileData[this.i].id);
         this.user.setFirstName(this.profileData[this.i].getFirstName());
         this.user.setLastName(this.profileData[this.i].getLastName());
         this.user.setCPRN(this.profileData[this.i].getCPRN());
@@ -91,8 +93,13 @@ export class ProfileComponent implements OnInit {
     formData.append('academicYear', this.user.academicYear);
     console.log('form', formData.get('contactNo'));
     this.profileService.updateProfile(formData).subscribe(
-      data => console.log('profile update', data),
+      data => this.redirect(data.pk),
       error => console.log('profile update', error)
     );
+  }
+
+  redirect(profileId) {
+    localStorage.setItem('profileId', profileId);
+    this.router.navigate([''], {relativeTo: this.activatedRoute});
   }
 }

@@ -1,3 +1,14 @@
-div{
-    margin-left: 25px;
+.row{
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.text-white{
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+}
+img{
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
 }

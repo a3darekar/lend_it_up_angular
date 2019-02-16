@@ -1,6 +1,7 @@
 export class Product {
   public pk: number;
   public title: string;
+  public seller: number;
   public category: number;
   public description: string;
   productImage: string;
@@ -11,7 +12,6 @@ export class Product {
   public validity: number;
   public rating: number;
   public available: string;
-  public tags = [];
   public reportedCount: number;
   public spam: boolean;
 }

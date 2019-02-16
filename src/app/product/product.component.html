@@ -1,79 +1,75 @@
-<hr>
-<form>
-  <div class="form-check">
-    <label class="form-check-label">
-      <input type="radio" class="form-check-input" name="option"> Sell
-    </label>
+<nav class='navbar fixed-top navbar-expand-sm navbar-light blue sticky-top'>
+  <ul class='navbar-nav mr-auto'>
+    <li class='nav-item'>
+      <a href='' style="font-weight: bold;" class='text-white navbar-brand waves-effect'>Lend it up!</a>
+    </li>
+    <li [hidden]='!key' class="nav-item mr-auto text-white nav-link waves-effect">
+        {{ username ? username : "" }}
+    </li>
+    <li (click)='onLogout()' class='nav-item mr-auto text-white nav-link waves-effect'>
+      {{ key ? "Logout" : "" }}
+    </li>
+  </ul>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col col-md-3"></div>
+    <div class="col col-md-6">
+      <h2>Sell/Lend</h2>
+      <form #productForm="ngForm" novalidate (ngSubmit)="onUpload()">
+        <div class="form-group">
+          <label>Product name</label>
+          <input #productName='ngModel' required class="form-control" [(ngModel)]="product.title"
+                 type="text" name="productName" [class.is-invalid]="productName.invalid && productName.touched">
+          <small class="text-danger" [class.d-none]="productName.valid || productName.untouched">This field is required!</small>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input [(ngModel)]='isSelling' type="radio" class="form-check-input" name="option"> Sell &nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="radio" class="form-check-input" name="option"> Lend
+          </label>
+        </div>
+        <div class="form-group">
+          <label>Choose a category:</label>
+          <select required #productCategory1="ngModel"
+                  [(ngModel)] = 'product.category'
+                  (change)="onCategoryChange(productCategory1.value)"
+                  [class.is-invalid]="productCategory1.invalid && productCategory1.touched"
+                  class="custom-select" name="productCategory">
+            <option *ngFor="let p of productCategory">{{ p.title }} </option>
+          </select>
+          <small class="text-danger" [class.d-none]="productCategory1.valid || productCategory1.untouched">Please select a category!</small>
+        </div>
+        <div class="form-group">
+          <label>Description</label>
+          <input #description='ngModel' [(ngModel)]="product.description" class="form-control"
+                 type="text" required [class.is-invalid]="description.invalid && description.touched" name="description">
+          <small class="text-danger" [class.d-none]="description.valid || description.untouched">This field is required!</small>
+        </div>
+        <div class="form-group">
+          <label>Quantity</label>
+          <input #quantity='ngModel' [(ngModel)]="product.quantity" required class="form-control"
+                 type="number" [class.is-invalid]="quantity.invalid && quantity.touched"  name="quantity">
+          <small class="text-danger" [class.d-none]="quantity.valid || quantity.untouched">This field is required!</small>
+        </div>
+        <div class="form-group">
+          <img #productImage='ngModel'
+                name='productImage'
+                [(ngModel)]='product.productImage'
+                [src]="imageUrl">
+          </div>
+          <input type='file' (change)='processFile($event)' accept='image/*' #pictureInput='ngModel' required [(ngModel)] = 'product.productImage'
+                class='form-control' [class.is-invalid]='pictureInput.invalid && pictureInput.touched' name='pictureInput'>
+        <div class="form-group">
+          <label>Price</label>
+          <input #price='ngModel' [(ngModel)]="product.sellingPrice" type="number" name="price"
+                 required [class.is-invalid]="price.invalid && price.touched" class="form-control">
+        </div>
+        <button class="btn btn-primary">Upload</button>
+        <br>
+        <br>
+      </form>
+    </div>
+    <div class="col col-md-3"></div>
   </div>
-  
-  <div class="form-check">
-    <label class="form-check-label">
-      <input type="radio" class="form-check-input" name="option"> Lend
-    </label>
-  </div>
-  
-  <div class="form-check">
-    <label class="form-check-label">
-      <input type="radio" class="form-check-input" name="option"> Both
-    </label>
-  </div>
-  <br>
-
-  <b>Choose a category:</b>
-  <div class="form-group">
-    <select required #productCategory1="ngModel"
-            [(ngModel)] = 'productCategory'
-            [class.is-invalid]="productCategory1.is-invalid && productCategory1.touched"
-            class="custom-select" name="productCategory">
-      <option *ngFor="let p of productCategory">{{ p }} </option>
-    </select>
-  </div>
-
-  <div>
-      
-    <input type="text" name="productName" size="50" placeholder="Enter Product Name">
-    <br><br>
-    <input type="text" name="productDesciption" size="50" placeholder="Enter Product Description(optional)"><br><br>
-    <input type="text" name="productQuantity" size="50" placeholder="Enter quantity"><br>
-    <p>
-      image upload code...
-    </p>
-  </div>
-
-  <hr>
-  <h2 style="text-align:center">LEND</h2>
-  <div>
-    <input type="tel" name="productLendingPrice" placeholder="Set Price">
-    per 
-  </div>
-  <div class="form-check">
-    <label class="form-check-label">
-      <input type="radio" class="form-check-input" name="option"> Day
-    </label>
-  </div>
-    
-  <div class="form-check">
-    <label class="form-check-label">
-      <input type="radio" class="form-check-input" name="option"> Month
-    </label>
-  </div>
-    
-  <div class="form-check">
-    <label class="form-check-label">
-      <input type="radio" class="form-check-input" name="option"> Year
-    </label>
-  </div>
-  <br>
-  
-  <hr>
-  <h2 style="text-align:center">SELL</h2>
-  <div>
-      <input type="text" name="productSellingPrice" size="50" placeholder="Enter Price Per Unit"><br><br>
-  </div>
-  <br><br>
-  <hr>
-  <input type="submit" class="btn btn-primary" value="Upload" style="float:right">
-  <br>
-  <br>
-</form>
-
+</div>

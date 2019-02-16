@@ -7,10 +7,10 @@ import { User } from '../observables/user';
 })
 export class LoginService {
 
-  BASE_URL = 'https://ce2b94d3.ngrok.io/';
+  BASE_URL = 'https://70e95ed1.ngrok.io/';
   constructor(private http: HttpClient) { }
 
   public login(user: User) {
-    return this.http.post<any>(this.BASE_URL + 'auth/login/', user);
+    return this.http.post(this.BASE_URL + 'auth/login/', user);
   }
 }
